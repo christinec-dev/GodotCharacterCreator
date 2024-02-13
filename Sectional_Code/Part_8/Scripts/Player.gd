@@ -35,6 +35,8 @@ func _physics_process(delta):
 	else: 
 		velocity.y = move_toward(velocity.y, 0, speed * delta)
 	
+			animation_player.play("idle_down")
+			
 	move_and_slide()
 
 func initialize_player():
@@ -43,18 +45,16 @@ func initialize_player():
 	body.modulate = Global.selected_body_color
 	
 	# Hair and color
-	if Global.selected_hair != "none":
-		hair.texture = Global.hair_collection[Global.selected_hair]
-		hair.modulate = Global.selected_hair_color
+	hair.texture = Global.hair_collection[Global.selected_hair]
+	hair.modulate = Global.selected_hair_color
 		
 	# Outfit and color
 	outfit.texture = Global.outfit_collection[Global.selected_outfit]
 	outfit.modulate = Global.selected_outfit_color
 	
 	# Accessory and color
-	if Global.selected_accessory != "none":
-		accessory.texture = Global.accessory_collection[Global.selected_accessory]
-		accessory.modulate = Global.selected_accessory_color
+	accessory.texture = Global.accessory_collection[Global.selected_accessory]
+	accessory.modulate = Global.selected_accessory_color
 	
 	# Player name
 	name_label.text = Global.player_name
